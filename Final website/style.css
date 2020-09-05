@@ -1,0 +1,106 @@
+*{
+	margin:0;
+	padding:0;
+}
+.header
+{
+	height:10vh;
+	
+	
+}
+.navbar-style
+{
+	box-shadow:0 5px 10px #BFBFBF;
+	font-size:16px;
+}
+.logo
+{
+	height:50px;
+	padding:2px 10px;
+}
+.icon-bar
+{
+	background:darkorange;
+}
+.navbar{
+	background-color: #F3F3F3;
+}
+li a
+{
+	color:black;
+}
+.big-text
+{
+	font-size:52px;
+	margin:20px 0;
+	
+}
+a.btn
+{
+	margin:30px 10px;
+	width:150px;
+	padding:10px;
+	border-radius:20px;
+	
+}
+a.btn-first
+{
+	background-color:darkorange;
+	color:#fff;
+	
+}
+.banner-info,.banner-img
+{
+	
+	margin:30px 0;
+}
+.footer 
+{
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: darkorange;
+	color: white;
+	text-align: center;
+}
+div.gallery {
+  margin: 13px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+  
+}
+
+div.gallery img {
+  width: 100%;
+ 
+}
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 14px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid darkorange;
+}
+
+.button1:hover {
+  background-color: darkorange;
+  color: white;
+}
+
+
+
