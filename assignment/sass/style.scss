@@ -1,0 +1,553 @@
+/* 
+    Created on : Dec 12, 2015, 6:51:19 PM
+    Author     : NIZAM
+*/
+// Import compass variables
+@import 'compass';
+
+//COLORS
+$base-color: #333333;       $color-white: #FFFFFF;      $color-black: #000000;
+$color-gray: #eeeaeb;       $color-gray2: #d5d5d5;      $color-gray3: #c5c5c5;
+$color-gray4: #d5ccb4;      $color-gray5: #cac4b4;      $color-gray6: #dddddd;
+$color-gray7: #dcd7d3;      $color-brown: #e6c36e;      $color-brown2: #c8a551;
+$color-brown3: #b9a071;     $color-brown4: #f4eede;     $color-brown5: #947f4b;
+$color-brown6: #91794a;     $color-brown8: #f3e3bd;     $color-brown9: #9a844a;
+$color-brown10: #e1c787;    $color-brown11: #b7974b;    $color-brown12: #86705e;
+$color-brown13: #e4c16d;    $color-brown14: #9c793c;    $color-blue: #044e8e;
+
+//TYPOGRAPHY
+$font-size: 13px;
+$primary-font: "Arial", sans-serif;
+$secondary-font: 'Droid Serif', serif;
+$icon-font: 'FontAwesome';
+
+//STRUCTURE
+$spacing: 20px;
+
+
+
+/*Basic CSS*/
+body{
+    color: $base-color;
+    font-family: $primary-font;
+    font-size: $font-size;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+ul, li, a, img, input, select, textarea, button{
+    outline: none;
+}
+ul, li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+#{ headings() }{
+    font-family: $secondary-font;
+    line-height: 1.25;
+    margin: 0;
+}
+a{
+    color: $base-color;
+    @include transition(all 0.2s linear);
+    &:hover, &:active, &:focus{
+        color: lighten( $base-color, 20 );
+        text-decoration: none;
+        @include transition(all 0.2s linear);
+    }
+}
+img{
+    max-width: 100%;
+}
+small, .small-text{
+    font-size: $font-size * 0.9230769230769231; // 12px
+}
+.big-text{
+    font-size: $font-size * 1.230769230769231;
+}
+.clear{
+    clear: both;
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.bg-gray{
+    background-color: $color-gray;
+}
+
+/*CSS for <header>*/
+header{
+    .logo-strip{
+        padding: $spacing 0;
+    }
+    .top-nav{
+        li{
+            border-right: 1px solid $base-color;
+            float: left;
+            padding: 0 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            @extend .small-text;
+            line-height: 1;
+            &:last-child{
+                border-right: none;
+                padding-right: 0;
+            }
+            a{
+
+            }
+        }
+    }
+    .search-site{
+        right: 0;
+        bottom: 0;
+        text-align: right;
+    }
+}
+.main-navbar{
+    background-color: $color-brown;
+    .navbar.navbar-default{
+        margin-bottom: 0;
+        background-color: transparent;
+        border: none;
+        min-height: 30px;
+
+    }
+    ul.nav{
+        li{
+            a{
+                color: $base-color;
+                padding: 10px 14.5px;
+                line-height: normal;
+                font-weight: bold;
+                &:hover, .active{
+                    background-color: $color-brown2;
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}
+.navbar-default{
+    .navbar-toggle{
+        border: none;
+        .icon-bar{
+            background-color: $color-white;
+        }
+        &:hover, &:active, &:focus{
+            background-color: transparent;
+            .icon-bar{
+                background-color: darken( $color-white, 10)
+            }
+        }
+        &.collapsed{
+            .icon-bar{
+                background-color: $color-white;
+            }
+        }
+    }
+}
+
+/*#content css*/
+.slider-row{
+    background-color: $color-gray;
+    border-bottom: 5px solid $color-gray7;
+}
+.welcome-text{
+    padding: 20px;
+    h1{
+        color: $color-brown3;
+        font-size: $font-size * 1.538461538461538;
+        margin-bottom: $spacing;
+    }
+    img.avatar{
+        border: 6px solid $color-gray2;
+        margin: 0 10px 10px 0;
+    }
+    a.readmore{
+        color: $color-brown6;
+        font-weight: bold;
+        &:hover{
+            color: lighten( $color-brown6, 10);
+        }
+    }
+}
+.main-slider{
+    padding: 0;
+    .bx-wrapper{
+        margin-bottom: 0;
+        .bx-pager{
+            padding: 0;
+            bottom: 20px;
+            text-align: right;
+            font-size: 1px;
+            right: 15px;
+            a{
+                width: 18px;
+                height: 18px;
+                @include border-radius(10px);
+                border: 2px solid $color-brown;
+                background-color: $color-brown12;
+                &.active, &:hover{
+                    border-color: $color-white;
+                    background-color: $color-brown12;
+                }
+            }
+        }
+    }
+    img{
+        width: 100%;
+    }
+}
+.carousel{
+    ul{
+        li{
+            border: 6px solid $color-gray;
+            @include transition(all 0.2s);
+            &:hover{
+                border-color: $color-brown;
+                @include transition(all 0.2s);
+            }
+        }
+    }
+    .next, .prev{
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
+    }
+    .prev{
+        left: $spacing / 2;
+    }
+    .next{
+        right: $spacing / 2;
+    }
+}
+.title, a.title{
+    font-family: $secondary-font;
+    font-weight: bold;
+    @extend .big-text;
+    background-color: $color-brown4;
+    color: $base-color;
+    border-left: 9px solid $color-brown;
+    padding: 0 $spacing / 2;
+    margin-bottom: $spacing / 2;
+    height: 30px;
+    line-height: 30px;
+}
+.gallery{
+    .row{
+        .col-md-3{
+            padding-left: $spacing / 4;
+            padding-right: $spacing / 4;
+        }
+    }
+    .fancybox-thumbs{
+        /*padding-left: 5px;*/
+        /*padding-right: 5px;*/
+        padding-bottom: 10px;
+        text-align: center;
+        display: inline-block;
+        img{
+            border: 4px solid $color-gray5;
+            display: inline-block;
+            cursor: pointer;
+            @include transition(all 0.2s);
+            &:hover{
+                border-color: $color-brown;
+                @include transition(all 0.2s);
+            }
+        }
+        &:hover img{
+            border-color: $color-brown;
+            @include transition(all 0.2s);
+        }
+        p{
+            margin-top: $spacing / 4;
+            color: $color-blue;
+        }
+    }
+}
+.latest-tweet{
+    ul{
+        li{
+            padding-top: $spacing / 2;
+            padding-bottom: $spacing;
+            border-bottom: dotted 1px $color-gray6;
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+/*#rt-sider css*/
+.widget{
+    border-bottom: 1px solid $color-gray3;
+    padding-bottom: $spacing;
+    margin-top: $spacing;
+    float: left;
+    width: 100%;
+    &:last-child{
+        border-bottom: none;
+    }
+    p{
+        margin: 0;
+    }
+}
+.news{
+    .thick-border{
+        border: 4px solid $color-gray5;
+    }
+    .heading{
+        padding-left: 110px;
+        h5{
+            a{
+                color: $base-color;
+                font-weight: bold;
+                &:hover{
+                    color: lighten( $base-color, 20 );
+                }
+            }
+        }
+        span{
+            @extend .small-text;
+        }
+    }
+    .news-list{
+        li{
+            float: left;
+            clear: both;
+            &:before{
+                font-family: $icon-font;
+                content: "\f101";
+            }
+        }
+    }
+    a{
+        color: $color-blue;
+        &:hover{
+            color: lighten( $color-blue, 20 );
+        }
+    }
+    .news-footer{
+        .next-news, .prev-news{
+            width: 18px;
+            height: 21px;
+            display: inline-block;
+            background-color: $color-brown4;
+            border: 1px solid $color-brown10;
+            color: $color-brown11;
+            text-align: center;
+            a{
+                color: $color-brown11;
+                display: block;
+                &:hover{
+                    color: lighten( $color-brown11, 20 );
+                }
+            }
+        }
+    }
+}
+.weather{
+    .aw-widget-current-inner{
+        padding: 0;
+        margin: 0;
+    }
+    #link_get_widget{
+        display: none;
+    }
+
+}
+.date-time{
+    #date{
+        @extend .big-text;
+    }
+    #time{
+        font-family: $secondary-font;
+        font-size: 60px;
+    }
+
+}
+
+/*footer area css*/
+.clients-slider{
+    .next-client, .prev-client{
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
+    }
+    .next-client{
+        right: $spacing / 2;
+    }
+    .prev-client{
+        left: $spacing / 2;
+    }
+    li{
+        height: 110px;
+        position: relative;
+        a{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            @include transform(translate(-50%, -50%));
+            width: 100%;
+            text-align: center;
+            img{
+                display: inline-block;
+            }
+        }
+    }
+
+}
+footer{
+    background-color: $color-brown;
+    h3{
+        @extend .big-text;
+        font-weight: bold;
+        border-bottom: 1px solid $color-brown14;
+        padding-bottom: $spacing / 4;
+        margin-bottom: $spacing;
+    }
+    ul.arrows{
+        li{
+            float: left;
+            clear: both;
+            line-height: 1;
+            padding-bottom: 15px;
+            &:before{
+                font-family: "FontAwesome";
+                content: "\f101";
+            }
+            a{
+                padding-left: 10px;
+            }
+        }
+    }
+    .footer-logo{
+        margin-top: $spacing / 2;
+    }
+    .copyrights{
+        margin-top: $spacing * 2;
+        font-size: 12px;
+        .links li{
+            border-right: 1px solid;
+            float: left;
+            padding: 0 5px;
+            line-height: 1;
+            &:last-child{
+                border-right: none;
+            }
+        }
+    }
+    .disclaim{
+        background-color: $color-brown5;
+        padding: 10px 0;
+        color: $color-brown8;
+        font-size: 11px;
+    }
+}
+
+/*RESET | SPACING CSS*/
+@media screen and ( min-width: 992px ){
+    .np-md{
+        padding: 0;
+    }
+    .content{
+        border-right: 1px solid $color-gray3;
+    }
+    /*below css shows border incase sidebar is taller than content area*/
+    .rt-sidebar{
+        border-left: 1px solid $color-gray3;
+        margin-left: -1px;
+    }
+    .widget:first-child{
+        margin-top: 0;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    /*help to align navigation in center*/
+    .main-navbar{
+        overflow: hidden;
+        ul.nav.navbar-nav{
+            position: relative;
+            left: 50%;
+            text-align: center;
+            li{
+                position: relative;
+                left:-50%;
+                float: none;
+                display: inline-block;
+                a{
+                    padding: $spacing / 2;
+                }
+            }
+        }
+    }
+}
+@media screen and ( min-width: 768px){
+    .latest-tweet{
+        border-right: 1px solid $color-gray3;
+        padding-left: 0;
+    }
+    /*below css shows border incase sidebar is taller than content area*/
+    .facebook-widget{
+        border-left: 1px solid $color-gray3;
+        margin-left: -1px;
+        padding-right: 0;
+    }
+}
+@media only screen and (max-width: 767px){
+    header{
+        .header-logo{
+            text-align: center;
+            margin-top: $spacing;
+        }
+        .search-site{
+            position: relative;
+            margin-top: $spacing;
+            text-align: center;
+            right: auto;
+            bottom: auto;
+        }
+    }
+    #content{
+        .main-slider{
+            .bx-wrapper{
+                margin-bottom: 40px;
+                .bx-pager{
+                    right: auto;
+                    bottom: -30px;
+                    text-align: center;
+                    a{
+                        height: 15px;
+                        width: 15px;
+                        font-size: 1px;
+                    }
+
+                }
+            }
+        }
+    }
+    .latest-tweet, .facebook-widget{
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: $spacing;
+        border-bottom: 1px solid $color-gray3;
+    }
+    .facebook-widget{
+        margin-top: $spacing;
+    }
+}
+.pb-full{
+    padding-bottom: $spacing;
+}
+.mt-full{
+    margin-top: $spacing;
+}
+.bb1g{
+    border-bottom: 1px solid $color-gray3;
+}
